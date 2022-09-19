@@ -1,0 +1,133 @@
+{
+    "packages": [
+        {
+            "name": "dvdoug/boxpacker",
+            "version": "3.10.0",
+            "version_normalized": "3.10.0.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/dvdoug/BoxPacker.git",
+                "reference": "43a42412932404c2e3b2d15b85647486c3367464"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/dvdoug/BoxPacker/zipball/43a42412932404c2e3b2d15b85647486c3367464",
+                "reference": "43a42412932404c2e3b2d15b85647486c3367464",
+                "shasum": ""
+            },
+            "require": {
+                "ext-json": "*",
+                "php": "^7.1||^8.0",
+                "psr/log": "^1.0||^2.0||^3.0"
+            },
+            "require-dev": {
+                "behat/behat": "^3.7",
+                "dvdoug/behat-code-coverage": "^5.0.1",
+                "friendsofphp/php-cs-fixer": "^3.7",
+                "monolog/monolog": "^1.0||^2.0",
+                "phpunit/phpunit": "^7.5.20||^8.5.21||^9.5.8"
+            },
+            "time": "2022-09-10T19:38:53+00:00",
+            "type": "library",
+            "installation-source": "dist",
+            "autoload": {
+                "psr-4": {
+                    "DVDoug\\BoxPacker\\": "src/",
+                    "DVDoug\\BoxPacker\\Test\\": "tests/Test"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Doug Wright",
+                    "role": "Developer"
+                }
+            ],
+            "description": "An implementation of the 3D (actually 4D) bin packing/knapsack problem (aka creating parcels by putting items into boxes)",
+            "homepage": "http://boxpacker.io/",
+            "keywords": [
+                "bin packing",
+                "binpacking",
+                "box",
+                "boxes",
+                "boxpacking",
+                "container",
+                "knapsack",
+                "packaging",
+                "packing",
+                "parcel",
+                "parcelpacking",
+                "shipping"
+            ],
+            "support": {
+                "issues": "https://github.com/dvdoug/BoxPacker/issues",
+                "source": "https://github.com/dvdoug/BoxPacker/tree/3.10.0"
+            },
+            "funding": [
+                {
+                    "url": "https://github.com/dvdoug",
+                    "type": "github"
+                }
+            ],
+            "install-path": "../dvdoug/boxpacker"
+        },
+        {
+            "name": "psr/log",
+            "version": "1.1.4",
+            "version_normalized": "1.1.4.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/php-fig/log.git",
+                "reference": "d49695b909c3b7628b6289db5479a1c204601f11"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/php-fig/log/zipball/d49695b909c3b7628b6289db5479a1c204601f11",
+                "reference": "d49695b909c3b7628b6289db5479a1c204601f11",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.3.0"
+            },
+            "time": "2021-05-03T11:20:27+00:00",
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "1.1.x-dev"
+                }
+            },
+            "installation-source": "dist",
+            "autoload": {
+                "psr-4": {
+                    "Psr\\Log\\": "Psr/Log/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "PHP-FIG",
+                    "homepage": "https://www.php-fig.org/"
+                }
+            ],
+            "description": "Common interface for logging libraries",
+            "homepage": "https://github.com/php-fig/log",
+            "keywords": [
+                "log",
+                "psr",
+                "psr-3"
+            ],
+            "support": {
+                "source": "https://github.com/php-fig/log/tree/1.1.4"
+            },
+            "install-path": "../psr/log"
+        }
+    ],
+    "dev": true,
+    "dev-package-names": []
+}

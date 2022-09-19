@@ -1,0 +1,50 @@
+.box-size-item {
+  position: relative;
+  width: 100%;
+  background-color: rgba(236, 220, 129, 0.596);
+  margin: 10px;
+  border-radius: 10px;
+  padding: 10px;
+}
+
+.item-details {
+  position: relative;
+  width: 100%;
+  background-color: rgba(236, 129, 134, 0.596);
+  margin: 10px;
+  border-radius: 10px;
+  padding: 10px;
+}
+
+.output-span {
+  position: relative;
+  width: 100%;
+  background-color: rgba(236, 129, 134, 0.596);
+  margin: 10px;
+  border-radius: 10px;
+  padding: 30px;
+  font-size: 12px;
+}
+
+/* SCROLLBAR */
+/* width */
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  background: #f1f1f1;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: #888;
+  border-radius: 10px;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: #555;
+}
+/* SCROLLBAR */

@@ -1,0 +1,5 @@
+{
+    "require": {
+        "dvdoug/boxpacker": "^3.10"
+    }
+}

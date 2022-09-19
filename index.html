@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Box Size Calculator</title>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <!-- Bootstrap -->
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css"
+      integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
+      crossorigin="anonymous"
+    />
+
+    <script
+      src="https://code.jquery.com/jquery-3.6.1.js"
+      integrity="sha256-3zlB5s2uwoUzrXK3BT7AX3FyvojsraNFxCc2vC/7pNI="
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js"
+      integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js"
+      integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+      crossorigin="anonymous"
+    ></script>
+
+    <script
+      async
+      src="https://unpkg.com/es-module-shims@1.3.6/dist/es-module-shims.js"
+    ></script>
+
+    <script type="importmap">
+      {
+        "imports": {
+          "three": "https://unpkg.com/three@0.144.0/build/three.module.js"
+        }
+      }
+    </script>
+
+    <link href="assets/css/style.css" rel="stylesheet" />
+    <script src="assets/js/script.js" type="module"></script>
+  </head>
+  <body>
+    <nav class="navbar navbar-expand-sm bg-dark navbar-dark">
+      <a class="navbar-brand" href="#">
+        <h3 class="ml-2 mt-2 mb-2">Box Size Calculator</h3>
+      </a>
+    </nav>
+    <div class="container-fluid">
+      <form id="calculation-form">
+        <div class="row">
+          <div class="col-12">
+            <button
+              class="btn btn-success float-right mt-5 mb-5 pl-5 pr-5"
+              type="submit"
+            >
+              Calculate
+            </button>
+          </div>
+        </div>
+        <div class="row mb-5">
+          <!--Boxes-->
+          <div class="col-md-4 col-sm-12 mb-5">
+            <h6 class="mb-4 ml-3">Box Types:</h6>
+            <hr />
+            <div class="box-size-container">
+              <div class="row box-size-item">
+                <div class="col-md-12 col-sm-12">
+                  <button
+                    class="btn btn-danger float-right"
+                    onclick="removebox($(this))"
+                  >
+                    x
+                  </button>
+                </div>
+                <div class="col-md-12 col-sm-12">
+                  <div class="form-group">
+                    <label>Box Name:</label>
+                    <input
+                      type="text"
+                      class="form-control box-name"
+                      value="Large Box"
+                      required
+                    />
+                  </div>
+                </div>
+                <div class="col-md-3 col-sm-12">
+                  <div class="form-group">
+                    <label>Width:</label>
+                    <input
+                      type="number"
+                      class="form-control box-width"
+                      value="60"
+                      required
+                    />
+                  </div>
+                </div>
+                <div class="col-md-3 col-sm-12">
+                  <div class="form-group">
+                    <label>Length:</label>
+                    <input
+                      type="number"
+                      class="form-control box-length"
+                      value="45"
+                      required
+                    />
+                  </div>
+                </div>
+                <div class="col-md-3 col-sm-12">
+                  <div class="form-group">
+                    <label>Height:</label>
+                    <input
+                      type="number"
+                      class="form-control box-height"
+                      value="45"
+                      required
+                    />
+                  </div>
+                </div>
+                <div class="col-md-3 col-sm-12">
+                  <div class="form-group">
+                    <label>Max-Weight:</label>
+                    <input
+                      type="number"
+                      class="form-control box-weight"
+                      value="18000"
+                      required
+                    />
+                  </div>
+                </div>
+              </div>
+            </div>
+            <br />
+            <button
+              class="btn btn-primary float-right"
+              onclick="addBoxes()"
+              type="button"
+            >
+              Add More
+            </button>
+          </div>
+
+          <!--Items-->
+          <div class="col-md-8 col-sm-12 mb-5">
+            <h6 class="mb-4 ml-3">Items to be packed:</h6>
+            <hr />
+            <div class="item-details-container">
+              <div class="row item-details">
+                <div class="col-md-12 col-sm-12">
+                  <button
+                    class="btn btn-danger float-right"
+                    onclick="removeItem($(this))"
+                  >
+                    x
+                  </button>
+                </div>
+                <div class="col-md-8 col-sm-12">
+                  <div class="form-group">
+                    <label>Item Name:</label>
+                    <input
+                      type="text"
+                      class="form-control item-name"
+                      value="Earphones"
+                      required
+                    />
+                  </div>
+                </div>
+                <div class="col-md-4 col-sm-12">
+                  <div class="form-group">
+                    <label>Quantity:</label>
+                    <input
+                      type="number"
+                      class="form-control item-qty"
+                      value="18"
+                      required
+                    />
+                  </div>
+                </div>
+                <div class="col-md-3 col-sm-12">
+                  <div class="form-group">
+                    <label>Width:</label>
+                    <input
+                      type="number"
+                      class="form-control item-width"
+                      value="13"
+                      required
+                    />
+                  </div>
+                </div>
+                <div class="col-md-3 col-sm-12">
+                  <div class="form-group">
+                    <label>Length:</label>
+                    <input
+                      type="number"
+                      class="form-control item-length"
+                      value="13"
+                      required
+                    />
+                  </div>
+                </div>
+                <div class="col-md-3 col-sm-12">
+                  <div class="form-group">
+                    <label>Height:</label>
+                    <input
+                      type="number"
+                      class="form-control item-height"
+                      value="24"
+                      required
+                    />
+                  </div>
+                </div>
+                <div class="col-md-3 col-sm-12">
+                  <div class="form-group">
+                    <label>Weight:</label>
+                    <input
+                      type="number"
+                      class="form-control item-weight"
+                      value="250"
+                      required
+                    />
+                  </div>
+                </div>
+              </div>
+            </div>
+            <br />
+            <button
+              class="btn btn-primary float-right"
+              onclick="addItems()"
+              type="button"
+            >
+              Add More
+            </button>
+          </div>
+        </div>
+
+        <!--Output-->
+        <div class="row">
+          <div class="col-12">
+            <hr />
+            <div class="output-span"></div>
+          </div>
+        </div>
+      </form>
+    </div>
+  </body>
+  <script type="module"></script>
+</html>

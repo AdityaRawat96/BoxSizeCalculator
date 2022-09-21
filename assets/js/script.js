@@ -2,6 +2,23 @@ import * as THREE from "three";
 import { OrbitControls } from "https://unpkg.com/three@0.144.0//examples/jsm/controls/OrbitControls.js";
 
 $(document).ready(function () {
+  // Button Actions
+  $(".btn-add-more-items").click(function () {
+    addItems();
+  });
+
+  $(".btn-add-more-boxes").click(function () {
+    addBoxes();
+  });
+
+  $(".item-details-container").on("click", ".btn-remove-item", function () {
+    removeItem($(this));
+  });
+
+  $(".box-size-container").on("click", ".btn-remove-box", function () {
+    removebox($(this));
+  });
+
   $("#calculation-form").on("submit", function (e) {
     e.preventDefault();
 
@@ -49,65 +66,77 @@ $(document).ready(function () {
           },
           500
         );
-        const scene = new THREE.Scene();
-        const camera = new THREE.PerspectiveCamera(
-          75,
-          window.innerWidth / window.innerHeight,
-          0.1,
-          1000
-        );
 
-        const renderer = new THREE.WebGLRenderer({ antialias: true });
-        renderer.setSize(window.innerWidth, window.innerHeight);
-        document.body.appendChild(renderer.domElement);
-        const controls = new OrbitControls(camera, renderer.domElement);
+        var container = document.getElementById("canvas");
+        container.innerHTML = "";
+        container.style.display = "block";
 
-        // var box = data[0].box;
-        // const geometry = new THREE.BoxGeometry(
-        //   box.innerWidth,
-        //   box.innerLength,
-        //   box.innerDepth
-        // );
-        // const material = new THREE.MeshBasicMaterial({
-        //   color: getRandomColor(),
-        // });
-        // const cube = new THREE.Mesh(geometry, material);
-        // cube.position.x = 0;
-        // cube.position.y = 0;
-        // cube.position.z = 0;
-        // scene.add(cube);
-
-        data.result[0].items.map((item) => {
-          console.log(item);
-          const geometry = new THREE.BoxGeometry(
-            item.width,
-            item.length,
-            item.depth
-          );
-          const material = new THREE.MeshBasicMaterial({
-            color: getRandomColor(),
+        for (let index in data.result) {
+          //Add Renderer
+          const renderer = new THREE.WebGLRenderer({
+            antialias: true,
+            alpha: true,
           });
-          const cube = new THREE.Mesh(geometry, material);
-          cube.position.x = item.x;
-          cube.position.y = item.y;
-          cube.position.z = item.z;
-          scene.add(cube);
-        });
 
-        camera.position.set(5, 10, 80);
+          var w = container.offsetWidth;
+          var h = container.offsetHeight;
+          renderer.setSize(w, h);
+          container.appendChild(renderer.domElement);
 
-        controls.update();
+          //Add Camera
+          const camera = new THREE.PerspectiveCamera(75, w / h, 2, 1000);
+          camera.position.set(5, 50, 80);
 
-        function animate() {
-          requestAnimationFrame(animate);
+          const controls = new OrbitControls(camera, renderer.domElement);
 
-          // required if controls.enableDamping or controls.autoRotate are set to true
+          //Create Scene with geometry and material
+          const scene = new THREE.Scene();
+
+          // var box = data[0].box;
+          // const geometry = new THREE.BoxGeometry(
+          //   box.innerWidth,
+          //   box.innerLength,
+          //   box.innerDepth
+          // );
+          // const material = new THREE.MeshBasicMaterial({
+          //   color: getRandomColor(),
+          // });
+          // const cube = new THREE.Mesh(geometry, material);
+          // cube.position.x = 0;
+          // cube.position.y = 0;
+          // cube.position.z = 0;
+          // scene.add(cube);
+
+          data.result[index].items.map((item) => {
+            console.log(item);
+            const geometry = new THREE.BoxGeometry(
+              item.width,
+              item.length,
+              item.depth
+            );
+            const material = new THREE.MeshBasicMaterial({
+              color: getRandomColor(),
+            });
+            const cube = new THREE.Mesh(geometry, material);
+            cube.position.x = item.x;
+            cube.position.y = item.y;
+            cube.position.z = item.z;
+            scene.add(cube);
+          });
+
           controls.update();
 
-          renderer.render(scene, camera);
-        }
+          function animate() {
+            requestAnimationFrame(animate);
 
-        animate();
+            // required if controls.enableDamping or controls.autoRotate are set to true
+            controls.update();
+
+            renderer.render(scene, camera);
+          }
+
+          animate();
+        }
       },
     });
   });
@@ -136,7 +165,7 @@ function addBoxes(
   $(".box-size-container").append(`
     <div class="row box-size-item">
         <div class="col-md-12 col-sm-12">
-            <button class="btn btn-danger float-right" onclick="removebox($(this))">x</button>
+            <button class="btn btn-danger float-right btn-remove-box" type="button">x</button>
         </div>
         <div class="col-md-12 col-sm-12">
             <div class="form-group">
@@ -187,7 +216,7 @@ function addItems(
   $(".item-details-container").append(`
     <div class="row item-details">
         <div class="col-md-12 col-sm-12">
-            <button class="btn btn-danger float-right" onclick="removeItem($(this))">x</button>
+            <button class="btn btn-danger float-right btn-remove-item" type="button">x</button>
         </div>
         <div class="col-md-8 col-sm-12">
             <div class="form-group">

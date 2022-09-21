@@ -71,10 +71,7 @@
             <div class="box-size-container">
               <div class="row box-size-item">
                 <div class="col-md-12 col-sm-12">
-                  <button
-                    class="btn btn-danger float-right"
-                    onclick="removebox($(this))"
-                  >
+                  <button class="btn btn-danger float-right btn-remove-box">
                     x
                   </button>
                 </div>
@@ -137,8 +134,7 @@
             </div>
             <br />
             <button
-              class="btn btn-primary float-right"
-              onclick="addBoxes()"
+              class="btn btn-primary float-right btn-add-more-boxes"
               type="button"
             >
               Add More
@@ -152,10 +148,7 @@
             <div class="item-details-container">
               <div class="row item-details">
                 <div class="col-md-12 col-sm-12">
-                  <button
-                    class="btn btn-danger float-right"
-                    onclick="removeItem($(this))"
-                  >
+                  <button class="btn btn-danger float-right btn-remove-item">
                     x
                   </button>
                 </div>
@@ -229,8 +222,7 @@
             </div>
             <br />
             <button
-              class="btn btn-primary float-right"
-              onclick="addItems()"
+              class="btn btn-primary float-right btn-add-more-items"
               type="button"
             >
               Add More
@@ -243,6 +235,13 @@
           <div class="col-12">
             <hr />
             <div class="output-span"></div>
+          </div>
+        </div>
+
+        <!--Output 3D render -->
+        <div class="row">
+          <div class="col-12">
+            <div id="canvas">
           </div>
         </div>
       </form>

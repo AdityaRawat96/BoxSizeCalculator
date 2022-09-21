@@ -26,6 +26,19 @@
   font-size: 12px;
 }
 
+#canvas {
+  position: relative;
+  background-color: #000;
+  width: 100%;
+  height: 800px;
+  padding: 0px;
+  border-radius: 10px;
+  cursor: pointer;
+  background-color: beige;
+  display: none;
+  margin: 10px 10px 200px 10px;
+}
+
 /* SCROLLBAR */
 /* width */
 ::-webkit-scrollbar {
